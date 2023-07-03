@@ -6,9 +6,9 @@ from Individual import Individual
 
 class Population:
     def __init__(self, population_size: int, target: str):
-        self.population_size = population_size
-        self.target = target
-        self.individuals = []
+        self.population_size = population_size  # Parameter of population size
+        self.target = target  # Parameter of target string
+        self.individuals = []  # Container to hold all individuals in a population
 
     def initialize_population(self):
         for i in range(self.population_size):  # Loop through the number of individuals and initialize them at random
@@ -23,3 +23,9 @@ class Population:
     def print_population(self):
         for individual in self.individuals:  # Loop through each individual
             print(individual)  # Pprint the individual
+
+    def population_avg_fitness(self):
+        total_fitness = 0
+        for individual in self.individuals:  # Loop through each individual
+            total_fitness = total_fitness + individual.fitness  # Add each individual's fitness to the total
+        return total_fitness / self.population_size  # Average the fitness and return it
