@@ -20,6 +20,5 @@ class Individual:
                 fitness_value = fitness_value + 1
         return fitness_value
 
-
     def __str__(self):
         return "Genetics: " + self.genetics + " | Fitness = " + str(self.fitness)
