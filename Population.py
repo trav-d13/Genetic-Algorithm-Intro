@@ -25,7 +25,11 @@ class Population:
             print(individual)  # Pprint the individual
 
     def population_avg_fitness(self):
+        total_fitness = self.calc_total_fitness()  # Calculate the sum of the population fitness
+        return total_fitness / self.population_size  # Average the fitness and return it
+
+    def calc_total_fitness(self):
         total_fitness = 0
         for individual in self.individuals:  # Loop through each individual
             total_fitness = total_fitness + individual.fitness  # Add each individual's fitness to the total
-        return total_fitness / self.population_size  # Average the fitness and return it
+        return total_fitness
