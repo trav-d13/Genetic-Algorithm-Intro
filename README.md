@@ -5,13 +5,15 @@ An outline and example Genetic Algorithm to help understand the core principles 
 ## Task
 Target: `with enough probability anything is possible`
 
-
 The overall task is to use a genetic algorithm to produce an individual that matches the above target.
 
 ### 1. Create an Individual
-This task asks you to make an individual using an Object Oriented Programming (OOP) approach. 
-This means that each individual should contain a genome of letters (44 characters) including the space. 
-This individual attribute should be easily accessible and modifiable, so make a `getter` and a `setter` method to access it and set it.
+This task asks you to make an individual using an Object-Oriented Programming (OOP) approach. 
+This means that each individual should contain a genome of letters (44 characters) including the space.
+As well as a numerical value representing the fitness of the individual. 
+In summary, the Individual class should contain two fields: 
+- Genetics: The string containing the genetic information of the individual
+- Fitness: Initialize to zero to start. This will be continued in task 3.
 
 #### What is an Individual 
 An individual is a single entity within a population. 
@@ -82,3 +84,37 @@ Target: **with enough probability anything is possible**
 ![img.png](resources/fitness_example.png)
 
 The first match exists at `index=1` matching the `i` characters.
+
+### Implement a Selection Function
+Within the GA selection exists to determines the selection of the parents that will reproduce. 
+The traditional survival of the fittest method may lead to stagnation of the population genetics due to the same parents being selected. 
+Multiple methods have been created to maintain genetic diversity while still maintaining a selection of good quality/ higher fitness parents. 
+The `Selection.py` file contains a few of the possible selection methods. 
+There will be variable results based on the selection method, so careful consideration of the correct method or experimentation is
+crucial to determine what works for your genetic algorithm. 
+
+Please note, the graphs below are sourced from my studies at Maastricht University, specifically the Intelligent Systems course
+run by Kurt Driessens. 
+Full accreditation goes to the original author.
+
+
+#### Roulette Wheel Selection
+![rouletteWheel.png](resources/rouletteWheel.png)
+The roulette wheel selection can be summarized as follows: 
+The larger an individuals fitness the larger their probability of selection. The opposite also applies, such that the smaller
+an individuals fitness the less probability of them being selected. 
+This structure creates a selection behaviour where individuals of higher probability are more likely to be selected and pass good genetics
+to the next generation, however random occurrences and suboptimal selections maintains the population diversity and will potentially
+improve the genetic algorithm
+
+#### Tournament Selection
+Tournament selection randomly selects a subset of individuals from the population and holds a tournament
+tp determine which Individual is the fittest within this sub-population. 
+The fittest individual is then selected to act as a parent. 
+
+In summary the following steps are performed: 
+1. Randomly select a subpopulation of k size from the population
+2. Determine the fittest individual from the tournament. 
+3. This individual acts as a parent. 
+
+Please note, the size of the subpopulation (k) can be used to tune the selection process. 
