@@ -1,5 +1,6 @@
 import random
 
+tournament_pool_size = 10  # Initialize the size of the tournament pool
 
 # For this method it is essential that the Individual fitness values are positive (No negative values)
 def roulette_wheel_selection(population):
@@ -20,3 +21,25 @@ def construct_roulette_wheel(population):
         wheel[current_prob] = individual  # Assign the prob interval to the individual
     return wheel
 
+
+def tournament_selection(population):
+    pool = form_tournament_pool(population)  # Form the tournament pool
+    fittest_ind = fittest_in_tournament(pool)  # Determine the fittest individaul from the pool
+    return fittest_ind
+
+
+def fittest_in_tournament(pool):
+    highest_fitness = 0  # Initialize the values to determine who is the fittest individual
+    fittest_individual = None
+
+    for individual in pool:  # Loop through the individuals in the pool
+        if individual.fitness > highest_fitness:  # A higher fitness is detected
+            fittest_individual = individual  # Update the fittest individual
+            highest_fitness = individual.fitness  # Update the highest fitness value
+
+    return fittest_individual
+
+
+def form_tournament_pool(population):
+    pool = random.choices(population.individuals, k=tournament_pool_size)  # Select 10 individuals randoms from the population
+    return pool

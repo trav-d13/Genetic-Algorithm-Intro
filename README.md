@@ -106,3 +106,15 @@ an individuals fitness the less probability of them being selected.
 This structure creates a selection behaviour where individuals of higher probability are more likely to be selected and pass good genetics
 to the next generation, however random occurrences and suboptimal selections maintains the population diversity and will potentially
 improve the genetic algorithm
+
+#### Tournament Selection
+Tournament selection randomly selects a subset of individuals from the population and holds a tournament
+tp determine which Individual is the fittest within this sub-population. 
+The fittest individual is then selected to act as a parent. 
+
+In summary the following steps are performed: 
+1. Randomly select a subpopulation of k size from the population
+2. Determine the fittest individual from the tournament. 
+3. This individual acts as a parent. 
+
+Please note, the size of the subpopulation (k) can be used to tune the selection process. 

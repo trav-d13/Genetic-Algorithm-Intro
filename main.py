@@ -14,7 +14,17 @@ if __name__ == "__main__":
     print("Population avg fitness: ", population.population_avg_fitness())
 
     # SELECTION
+    # Roulette Wheel
     parent_1 = Selection.roulette_wheel_selection(population)
     parent_2 = Selection.roulette_wheel_selection(population)
+    print("Roulette Wheel Selected Parents: ")
     print(parent_1)
     print(parent_2)
+
+    # Tournament Selection
+    parent_1 = Selection.tournament_selection(population)
+    parent_2 = Selection.tournament_selection(population)
+    print("Tournament Selected Parents")
+    print(parent_1)
+    print(parent_2)
+
