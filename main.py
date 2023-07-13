@@ -1,6 +1,16 @@
 # This file serves as the main execution of the genetic algorithm.
+import Reproduction
 import Selection
 from Population import Population
+
+generation = 0  # Variable keeping track of each generation
+
+
+def stopping_condition():
+    if generation > 2:
+        return True
+    return False
+
 
 if __name__ == "__main__":
     # GA INFORMATION
@@ -10,21 +20,20 @@ if __name__ == "__main__":
     # POPULATION CREATION
     population = Population(population_size=population_size, target=target)
     population.initialize_population()
-    population.print_population()
     print("Population avg fitness: ", population.population_avg_fitness())
 
-    # SELECTION
-    # Roulette Wheel
-    parent_1 = Selection.roulette_wheel_selection(population)
-    parent_2 = Selection.roulette_wheel_selection(population)
-    print("Roulette Wheel Selected Parents: ")
-    print(parent_1)
-    print(parent_2)
+    while not stopping_condition():
+        # SELECTION
+        parent_1 = Selection.roulette_wheel_selection(population)  # This can be substituted with Selection,tournament_selection()
+        parent_2 = Selection.roulette_wheel_selection(population)  # Alternative substitution is Selection.boltzman()
 
-    # Tournament Selection
-    parent_1 = Selection.tournament_selection(population)
-    parent_2 = Selection.tournament_selection(population)
-    print("Tournament Selected Parents")
-    print(parent_1)
-    print(parent_2)
+        # REPRODUCTION
+        Reproduction.single_point_crossover(parent_1, parent_2)
+
+        # INFORMATION DISPLAY
+        generation += 1
+        print("Generation: ", generation,
+              " | Highest fitness: ", population.find_fittest_individual().fitness,
+              " | Population avg fitness: ", population.population_avg_fitness())
+
 

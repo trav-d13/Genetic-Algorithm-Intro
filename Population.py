@@ -33,3 +33,12 @@ class Population:
         for individual in self.individuals:  # Loop through each individual
             total_fitness = total_fitness + individual.fitness  # Add each individual's fitness to the total
         return total_fitness
+
+    def find_fittest_individual(self):
+        highest_fitness = 0
+        fittest_individual = None
+        for individual in self.individuals:
+            if individual.fitness > highest_fitness:
+                fittest_individual = individual
+                highest_fitness = individual.fitness
+        return fittest_individual
