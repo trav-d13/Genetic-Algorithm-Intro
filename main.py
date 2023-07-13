@@ -20,9 +20,13 @@ if __name__ == "__main__":
     # POPULATION CREATION
     population = Population(population_size=population_size, target=target)
     population.initialize_population()
-    print("Population avg fitness: ", population.population_avg_fitness())
 
     while not stopping_condition():
+        # INFORMATION DISPLAY
+        print("Generation: ", generation,
+              " | Highest fitness: ", population.find_fittest_individual().fitness,
+              " | Population avg fitness: ", population.population_avg_fitness())
+
         # SELECTION
         parent_1 = Selection.select("Roulette", population)  # Specify the selection method
         parent_2 = Selection.select("Roulette", population)
@@ -30,10 +34,7 @@ if __name__ == "__main__":
         # REPRODUCTION
         child_1, child_2 = Reproduction.single_point_crossover(parent_1, parent_2)
 
-        # INFORMATION DISPLAY
+        # UPDATE
         generation += 1
-        print("Generation: ", generation,
-              " | Highest fitness: ", population.find_fittest_individual().fitness,
-              " | Population avg fitness: ", population.population_avg_fitness())
 
 
