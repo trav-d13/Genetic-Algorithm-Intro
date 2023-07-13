@@ -24,11 +24,11 @@ if __name__ == "__main__":
 
     while not stopping_condition():
         # SELECTION
-        parent_1 = Selection.roulette_wheel_selection(population)  # This can be substituted with Selection,tournament_selection()
-        parent_2 = Selection.roulette_wheel_selection(population)  # Alternative substitution is Selection.boltzman()
+        parent_1 = Selection.select("Roulette", population)  # Specify the selection method
+        parent_2 = Selection.select("Roulette", population)
 
         # REPRODUCTION
-        Reproduction.single_point_crossover(parent_1, parent_2)
+        child_1, child_2 = Reproduction.single_point_crossover(parent_1, parent_2)
 
         # INFORMATION DISPLAY
         generation += 1

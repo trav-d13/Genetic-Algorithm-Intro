@@ -1,6 +1,17 @@
 import random
 
+from Population import Population
+
 tournament_pool_size = 10  # Initialize the size of the tournament pool
+
+
+# This method allows you to specify which selection method is executed
+def select(method: str, population: Population):
+    match method:
+        case "Roulette":
+            return roulette_wheel_selection(population)
+        case "Tournament":
+            return tournament_selection(population)
 
 # For this method it is essential that the Individual fitness values are positive (No negative values)
 def roulette_wheel_selection(population):
