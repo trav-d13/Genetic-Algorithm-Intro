@@ -7,7 +7,7 @@ generation = 0  # Variable keeping track of each generation
 
 
 def stopping_condition():
-    if generation > 100000:
+    if generation > 1000000:
         return True
     return False
 
@@ -15,7 +15,7 @@ def stopping_condition():
 if __name__ == "__main__":
     # GA INFORMATION
     target = "with enough probability anything is possible"
-    population_size = 10000
+    population_size = 100000
 
     # POPULATION CREATION
     population = Population(population_size=population_size, target=target)
@@ -32,8 +32,10 @@ if __name__ == "__main__":
         parent_2 = Selection.select("Tournament", population)
 
         # REPRODUCTION
-        child_1, child_2 = Reproduction.reproduce(parent_1, parent_2, "Single")
+        child_1, child_2 = Reproduction.reproduce(parent_1, parent_2, "Double")
         Reproduction.add_children_to_population(child_1, child_2, population)
+
+        # MUTATION
 
         # UPDATE
         generation += 1
