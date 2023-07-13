@@ -15,6 +15,10 @@ class Individual:
         if target == "":  # If target has not been initialized yet, initialize it
             target = target_string
 
+    def update_genetics(self, genetics: str):
+        self.genetics = genetics
+        self.fitness = self.calculate_fitness()
+
     def calculate_fitness(self):
         genetic_breakdown = list(self.genetics)  # Break the genetics string into a list of genetic components (characters)
         target_breakdown = list(target)  # Break the target down into a set of components (characters)

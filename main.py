@@ -1,4 +1,5 @@
 # This file serves as the main execution of the genetic algorithm.
+import Mutation
 import Reproduction
 import Selection
 from Population import Population
@@ -7,14 +8,14 @@ generation = 0  # Variable keeping track of each generation
 
 
 def stopping_condition():
-    if generation > 1000000:
+    if generation > 100000:
         return True
     return False
 
 
 if __name__ == "__main__":
     # GA INFORMATION
-    target = "with enough probability anything is possible"
+    target = "hello world"
     population_size = 100000
 
     # POPULATION CREATION
@@ -36,6 +37,7 @@ if __name__ == "__main__":
         Reproduction.add_children_to_population(child_1, child_2, population)
 
         # MUTATION
+        Mutation.mutate(child_1, child_2)
 
         # UPDATE
         generation += 1
