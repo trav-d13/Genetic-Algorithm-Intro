@@ -1,6 +1,22 @@
 import random
 
-tournament_pool_size = 10  # Initialize the size of the tournament pool
+from Population import Population
+
+tournament_pool_size = 1000  # Initialize the size of the tournament pool
+
+
+# This method allows you to specify which selection method is executed
+def select(method: str, population: Population):
+    individual = None
+    match method:
+        case "Roulette":
+            individual = roulette_wheel_selection(population)
+        case "Tournament":
+            individual = tournament_selection(population)
+
+    population.individuals.remove(individual)  # Remove the parent from the population
+    return individual
+
 
 # For this method it is essential that the Individual fitness values are positive (No negative values)
 def roulette_wheel_selection(population):
@@ -41,5 +57,6 @@ def fittest_in_tournament(pool):
 
 
 def form_tournament_pool(population):
-    pool = random.choices(population.individuals, k=tournament_pool_size)  # Select 10 individuals randoms from the population
+    pool = random.choices(population.individuals,
+                          k=tournament_pool_size)  # Select 10 individuals randoms from the population
     return pool

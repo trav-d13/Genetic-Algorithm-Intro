@@ -1,30 +1,45 @@
 # This file serves as the main execution of the genetic algorithm.
+import Mutation
+import Reproduction
 import Selection
 from Population import Population
 
+generation = 0  # Variable keeping track of each generation
+
+
+def stopping_condition():
+    if generation > 100000:
+        return True
+    return False
+
+
 if __name__ == "__main__":
     # GA INFORMATION
-    target = "with enough probability anything is possible"
-    population_size = 50
+    target = "hello world"
+    population_size = 100000
 
     # POPULATION CREATION
     population = Population(population_size=population_size, target=target)
     population.initialize_population()
-    population.print_population()
-    print("Population avg fitness: ", population.population_avg_fitness())
 
-    # SELECTION
-    # Roulette Wheel
-    parent_1 = Selection.roulette_wheel_selection(population)
-    parent_2 = Selection.roulette_wheel_selection(population)
-    print("Roulette Wheel Selected Parents: ")
-    print(parent_1)
-    print(parent_2)
+    while not stopping_condition():
+        # INFORMATION DISPLAY
+        print("Generation: ", generation,
+              " | Highest fitness: ", population.find_fittest_individual().fitness,
+              " | Population avg fitness: ", population.population_avg_fitness())
 
-    # Tournament Selection
-    parent_1 = Selection.tournament_selection(population)
-    parent_2 = Selection.tournament_selection(population)
-    print("Tournament Selected Parents")
-    print(parent_1)
-    print(parent_2)
+        # SELECTION
+        parent_1 = Selection.select("Tournament", population)  # Specify the selection method
+        parent_2 = Selection.select("Tournament", population)
+
+        # REPRODUCTION
+        child_1, child_2 = Reproduction.reproduce(parent_1, parent_2, "Double")
+        Reproduction.add_children_to_population(child_1, child_2, population)
+
+        # MUTATION
+        Mutation.mutate(child_1, child_2)
+
+        # UPDATE
+        generation += 1
+
 
