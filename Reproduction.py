@@ -1,8 +1,9 @@
 import random
 
 from Individual import Individual
+from Population import Population
 
-reproduce_prob = 0.9  # Probability of parents reproducing
+reproduce_prob = 0.7  # Probability of parents reproducing
 
 
 def reproduce(parent_1: Individual, parent_2: Individual, method: str):
@@ -16,6 +17,11 @@ def reproduce(parent_1: Individual, parent_2: Individual, method: str):
             case "Single":
                 child_1, child_2 = single_point_crossover(parent_1, parent_2)
     return child_1, child_2
+
+
+def add_children_to_population(child_1: Individual, child_2: Individual, population: Population):
+    population.individuals.append(child_1)
+    population.individuals.append(child_2)
 
 
 def single_point_crossover(parent_1: Individual, parent_2: Individual):

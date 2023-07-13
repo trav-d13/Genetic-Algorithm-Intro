@@ -2,7 +2,7 @@ import random
 
 from Population import Population
 
-tournament_pool_size = 10  # Initialize the size of the tournament pool
+tournament_pool_size = 500  # Initialize the size of the tournament pool
 
 
 # This method allows you to specify which selection method is executed

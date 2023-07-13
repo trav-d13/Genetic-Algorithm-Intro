@@ -23,7 +23,7 @@ class Individual:
         for component_pos in range(len(genetic_breakdown)):
             if genetic_breakdown[component_pos] == target_breakdown[component_pos]:  # If the components (characters) match, then increase the fitness
                 fitness_value = fitness_value + 1
-        return fitness_value
+        return fitness_value / len(target)
 
     def __str__(self):
         return "Genetics: " + self.genetics + " | Fitness = " + str(self.fitness)
