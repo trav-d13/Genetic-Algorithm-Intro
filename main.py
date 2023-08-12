@@ -8,7 +8,7 @@ generation = 0  # Variable keeping track of each generation
 
 
 def stopping_condition():
-    if generation > 100000:
+    if generation > 1000:
         return True
     return False
 
@@ -16,7 +16,7 @@ def stopping_condition():
 if __name__ == "__main__":
     # GA INFORMATION
     target = "hello world"
-    population_size = 100000
+    population_size = 1000
 
     # POPULATION CREATION
     population = Population(population_size=population_size, target=target)
