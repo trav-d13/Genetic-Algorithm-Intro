@@ -1,11 +1,81 @@
 # Genetic-Algorithm-Intro
 An outline and example Genetic Algorithm to help understand the core principles underlying the meta-heuristic optimization algorithm
 
+## Introduction
+### Genetic Algorithm Outline 
+Below is pseudocode outlining the general execution of the Genetic Algorithm (GA). 
+Please note this is only outlines the general process. Take the idea and make it your own, fitting it to your idea. 
+Boost your understanding of the GA by following the logical process of evolution as we know it. 
+The algorithm aims to mimic this process as closely as possinle. 
+Best of luck!
+
+```Python
+# Specify probabilities of mutation and reproduction
+prob_reproduce = 90%
+prob_mutate = 15%
+
+# Generate initial population with n chromosomes
+for ind in Population:
+    INITIALIZE(ind)
+    
+# Determine goal at which process halts    
+while Goal is not met:
+    parent 1 <- SELECTION(Population)
+    parent 2 <- SELECTION(Population)
+    
+    # Reproduction
+    if reproduce:
+        child 1, child 2 <- REPRODUCE(prent 1, parent 2)
+    else: 
+        child 1, child 2 <- parent 1, parent 2
+        
+    # Mutation
+    for child in children:
+        if mutate:
+            child <- MUTATE(child)
+    
+    # Addition to the population
+    ADD_CHILD_TO_POPULATION()
+```
+
+Please note, there are multiple ways to add a child to the population. 
+I will provide two possibilities amongst many below. 
+1. Stable Population
+    This is the method on which the above pseudocode is based such that the children replace the parents in the population,
+    such that the size of the population never increases/decreases but remains stable. 
+2. Increasing Population
+    This will require a slight modification of the pseudocode, as the parents and children may both be kept within the population. 
+    This will explosively increase the size of the population. A death factor to regulate the growth of the population may be 
+    necessary. This is to save computational resources and ensure your computer does not crash if the population grows too large. 
+
+### Advice
+Below are two keys pieces of advice to help you in this project. 
+1. **The KISS principle**
+    A good friend told me when you are coding, **K**eep **I**t **S**imple **S**tupid, the KISS principle. 
+    It means to not overcomplicate what you are trying to solve, oftentimes we overcomplicate what we are trying to solve. 
+    Keep it as simple as you can. 
+2. **MVP Principle**
+    This is a software developement principle, the Minimal Viable Product (MVP). It is linked to the KISS principle, 
+    such that your first product goal is to get the most simple form the GA working. From this working version you can improve, 
+    or experiment with it, but aim to achieve the Minimal Viable Product first.
+
+### Further Information
+Please find the attached document detailing Evolutionary Algorithms. 
+This includes additinal notes on the each of the below documented elements of a Genetic Algorithm 
+and the underlying theory of how/why evolutionary algorithms work. 
+Please note the theory is challenging but an interesting aspect of GA's. 
+
+[Evolutionary Algorithms](resources/evolutionary_algorithms.pdf)
+
+All rights and attributions to to Professor Kurt Driessens, the professor of the course Intelligent Systems 
+at Maastricht University, from which the notes and information of this project are composed. 
 
 ## Task
-Target: `with enough probability anything is possible`
+Target: `hello world`
 
 The overall task is to use a genetic algorithm to produce an individual that matches the above target.
+
+## Instructions and Ideas
 
 ### 1. Create an Individual
 This task asks you to make an individual using an Object-Oriented Programming (OOP) approach. 
@@ -171,3 +241,26 @@ element should be included in Child 1 or Child 2.
 The below diagram visualizes this process: 
 
 ![Pasted image 20230227112547.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112547.png)
+
+
+### Mutation
+Similar to real-world evolution mutation is a chance encounter which changes elements of an individual's genetics. 
+The mutation can be beneficial or disadvantageous effecting the survival/ fitness of the individual. 
+In a GA and similar to the real-world genetics is a process that occurs rarely. 
+To mimic this the process of evolution must be probabilistic, such that only ..% of the time it is executed. 
+In this example mutation only occurs 15% of the time. 
+
+There are multiple methods of applying mutation. 
+Below details the possibilities of mutation for this GA example. 
+Please note, there are other possibilities based on an Individual's genetic composition. 
+Please review the provided document for more information. 
+
+#### 1. Single Point Mutation
+A single random point (index) in an individual's genetics is selected and a random character replaces it at this position. 
+
+#### 2. Uniform Mutation
+At every point (index), the element is replaced by a randomly selected character. 
+Please note that if this option is selected the probability of mutation should be very small (less that 10%). 
+This form of mutation may increase diversity significantly, but it may take more time to converge to a solution. 
+
+
