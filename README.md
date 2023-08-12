@@ -86,7 +86,7 @@ Target: **with enough probability anything is possible**
 The first match exists at `index=1` matching the `i` characters.
 
 ### Implement a Selection Function
-Within the GA selection exists to determines the selection of the parents that will reproduce. 
+Within the GA selection exists to determine the selection of the parents that will reproduce. 
 The traditional survival of the fittest method may lead to stagnation of the population genetics due to the same parents being selected. 
 Multiple methods have been created to maintain genetic diversity while still maintaining a selection of good quality/ higher fitness parents. 
 The `Selection.py` file contains a few of the possible selection methods. 
@@ -97,15 +97,14 @@ Please note, the graphs below are sourced from my studies at Maastricht Universi
 run by Kurt Driessens. 
 Full accreditation goes to the original author.
 
+Three possible selection methods are provided below. The selection methods have varying levels of implementation difficulty arranged in the
+following order (easiest to hardest).
+1. Tournament Selection
+2. Roulette Wheel Selection
+3. Boltzman Selection
 
-#### Roulette Wheel Selection
-![rouletteWheel.png](resources/rouletteWheel.png)
-The roulette wheel selection can be summarized as follows: 
-The larger an individuals fitness the larger their probability of selection. The opposite also applies, such that the smaller
-an individuals fitness the less probability of them being selected. 
-This structure creates a selection behaviour where individuals of higher probability are more likely to be selected and pass good genetics
-to the next generation, however random occurrences and suboptimal selections maintains the population diversity and will potentially
-improve the genetic algorithm
+I would suggest following the Minimal viable Product (MVP) method and completing the easiest selection method first. 
+Once the GA is working, feel free to implement the more difficult methods and determine how they change the algorithm. 
 
 #### Tournament Selection
 Tournament selection randomly selects a subset of individuals from the population and holds a tournament
@@ -118,3 +117,28 @@ In summary the following steps are performed:
 3. This individual acts as a parent. 
 
 Please note, the size of the subpopulation (k) can be used to tune the selection process. 
+
+
+#### Roulette Wheel Selection
+![rouletteWheel.png](resources/rouletteWheel.png)
+The roulette wheel selection can be summarized as follows: 
+The larger an individuals fitness the larger their probability of selection. The opposite also applies, such that the smaller
+an individuals fitness the less probability of them being selected. 
+This structure creates a selection behaviour where individuals of higher probability are more likely to be selected and pass good genetics
+to the next generation, however random occurrences and suboptimal selections maintains the population diversity and will potentially
+improve the genetic algorithm
+
+
+#### Boltzman or Gibbs Distribution
+The Boltzamn/ Gibbs selection is based on the Boltzman/ Gibbs distribution. 
+It extends the capability of the Roulette wheel (see similarities in equations), however it includes Temperature (T). 
+Temperature is a fine-tuning parameter that allows the selection to be more random (high values of T) or more deterministic (low values of T)
+based on the values of T. 
+**Note:** Determinsitc behaviour is such that the highest fitness individual is always selected. (Always selects the fittest individual).
+
+![Pasted image 20230227111848.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227111848.png)
+
+A common usage of this methodology is to begin with a more random (high T value) in order to introduce diversity into the population, 
+and decrease Temperature (T) gradually as the generations continue in order to move from random behaviour to a more deterministic selection. 
+
+
