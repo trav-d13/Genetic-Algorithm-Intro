@@ -142,3 +142,32 @@ A common usage of this methodology is to begin with a more random (high T value)
 and decrease Temperature (T) gradually as the generations continue in order to move from random behaviour to a more deterministic selection. 
 
 
+### Reproduction
+Reproduction involves the two selected parents from the **Selection** process. 
+This process allows for the combination of the parent's genetics. This introduces new individual's with diverse genetics which
+may have better/ worse genetics that the parents. 
+
+There are multiple methods of performing the Reproduction process. 
+They are described below: 
+
+#### 1. Single Point Crossover
+A single random point (index) in the length of the individuals genetics is selected. 
+This point serves as the single point at which to crossover. 
+Based on the single point two children are created, using opposite genetic elements from each of the parents. 
+The below diagram visualizes the concept in a simple and easily understandable manner. 
+
+![Pasted image 20230227112521.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112521.png)
+
+#### 2. Double Point Crossover
+The Double Point Crossover extends the idea introduced in Single Point Crossover. 
+Except there are two random points (index) chosen. 
+The below diagram visualizes the process.
+
+![Pasted image 20230227112536.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112536.png)
+
+#### 3. Uniform Crossover
+The Uniform Crossover makes use of a uniform distribution to decide at each element of the genetics, wheter the 
+element should be included in Child 1 or Child 2. 
+The below diagram visualizes this process: 
+
+![Pasted image 20230227112547.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112547.png)
