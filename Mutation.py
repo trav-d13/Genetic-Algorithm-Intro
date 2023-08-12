@@ -3,7 +3,7 @@ import string
 
 from Individual import Individual
 
-mutation_prob = 0.15
+mutation_prob = 0.05
 child_selection_prob = 0.5
 
 
