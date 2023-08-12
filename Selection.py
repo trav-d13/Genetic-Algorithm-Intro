@@ -40,7 +40,7 @@ def construct_roulette_wheel(population):
 
 def tournament_selection(population):
     pool = form_tournament_pool(population)  # Form the tournament pool
-    fittest_ind = fittest_in_tournament(pool)  # Determine the fittest individaul from the pool
+    fittest_ind = fittest_in_tournament(pool)  # Determine the fittest individual from the pool
     return fittest_ind
 
 
