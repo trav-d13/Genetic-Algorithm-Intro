@@ -264,3 +264,20 @@ Please note that if this option is selected the probability of mutation should b
 This form of mutation may increase diversity significantly, but it may take more time to converge to a solution. 
 
 
+## Results
+Sample results are shown below. 
+It is important to note that if the results you get first are not what you expected, altering the parameters 
+of the GA can have a significant effect. The results below will showcase the wide and varied results caused by differing 
+parameters. Hence why the creation of a succesful GA algorithm is as much an art, as it is a science. 
+
+### Results 1
+![results_1.png](resources/results_1.png)
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 10 000
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 1000
