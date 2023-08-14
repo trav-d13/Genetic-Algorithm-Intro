@@ -39,7 +39,7 @@ class Population:
         highest_fitness = 0
         fittest_individual = None
         for individual in self.individuals:
-            if individual.fitness > highest_fitness:
+            if individual.fitness >= highest_fitness:
                 fittest_individual = individual
                 highest_fitness = individual.fitness
         return fittest_individual

@@ -273,6 +273,13 @@ parameters. Hence why the creation of a successful GA algorithm is as much an ar
 ### Results 1
 ![results_1.png](resources/results_1.png)
 
+The fittest individual experienced quick convergence to the optimal solution. 
+There existed multiple peaks and dips due to the crossover operator producing parents based off of the
+selection of the current fittest individual. 
+
+The average population fitness did not change much during this process. The success of a few did not have the
+required generations to be passed into the larger population. 
+
 #### Parameters:
 - Generations = 30 000
 - Population size = 10 000
@@ -281,3 +288,56 @@ parameters. Hence why the creation of a successful GA algorithm is as much an ar
 - Mutation probability = 0.05
 - Selection = Tournament
 - Selection pool size = 1000
+
+### Results 2
+![results_2.png](resources/results_2.png)
+
+This experiment increased the population size. 
+Based on visualized results, it took an increased number of generations to reach the maximum possible fitness. 
+This could be due to the greater pool of genetic diversity created by an increase in population. 
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 20 000
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 1000
+
+### Results 3
+![results_3.png](resources/results_3.png)
+
+This experiment aimed to introduce parameters outside of the successful scope to determine what a non-fine tuned results
+could look like. 
+A small population size reduces the genetic diversity within the population, combined with a relatively large tournament pool
+(in relation to the population size), the fittest individuals were consistently used for crossover operations, which were largely unsuccesful, 
+hence the steady decline in the fittest individuals. 
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 500
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 100
+
+### Results 4
+![results_4.png](resources/results_4.png)
+
+This experiment aimed to showcase the difference in selection pool size in comparison to Results 1 and 2. 
+The smaller selection pool meant that population diversity was maintained due to not always selecting the 
+fittest individual available. However the maintenance of diversity meant that the successes of the fittest individual's 
+were never capitalized from, but instead a reasonably good selection of individuals had good solutions at around 70% fitness,
+hence the consistent fittest individual line at 70% fitness. 
+
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 10 000
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 100
