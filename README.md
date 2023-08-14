@@ -206,7 +206,7 @@ Temperature is a fine-tuning parameter that allows the selection to be more rand
 based on the values of T. 
 **Note:** Determinsitc behaviour is such that the highest fitness individual is always selected. (Always selects the fittest individual).
 
-![Pasted image 20230227111848.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227111848.png)
+![Pasted image 20230227111848.png](resources/boltsman_dist.png)
 
 A common usage of this methodology is to begin with a more random (high T value) in order to introduce diversity into the population, 
 and decrease Temperature (T) gradually as the generations continue in order to move from random behaviour to a more deterministic selection. 
@@ -226,21 +226,21 @@ This point serves as the single point at which to crossover.
 Based on the single point two children are created, using opposite genetic elements from each of the parents. 
 The below diagram visualizes the concept in a simple and easily understandable manner. 
 
-![Pasted image 20230227112521.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112521.png)
+![Pasted image 20230227112521.png](resources/singple_point.png)
 
 #### 2. Double Point Crossover
 The Double Point Crossover extends the idea introduced in Single Point Crossover. 
 Except there are two random points (index) chosen. 
 The below diagram visualizes the process.
 
-![Pasted image 20230227112536.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112536.png)
+![Pasted image 20230227112536.png](resources/double_point.png)
 
 #### 3. Uniform Crossover
 The Uniform Crossover makes use of a uniform distribution to decide at each element of the genetics, wheter the 
 element should be included in Child 1 or Child 2. 
 The below diagram visualizes this process: 
 
-![Pasted image 20230227112547.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112547.png)
+![Pasted image 20230227112547.png](resources/uniform.png)
 
 
 ### Mutation
@@ -264,3 +264,80 @@ Please note that if this option is selected the probability of mutation should b
 This form of mutation may increase diversity significantly, but it may take more time to converge to a solution. 
 
 
+## Results
+Sample results are shown below. 
+It is important to note that if the results you get first are not what you expected, altering the parameters 
+of the GA can have a significant effect. The results below will showcase the wide and varied results caused by differing 
+parameters. Hence why the creation of a successful GA algorithm is as much an art, as it is a science. 
+
+### Results 1
+![results_1.png](resources/results_1.png)
+
+The fittest individual experienced quick convergence to the optimal solution. 
+There existed multiple peaks and dips due to the crossover operator producing parents based off of the
+selection of the current fittest individual. 
+
+The average population fitness did not change much during this process. The success of a few did not have the
+required generations to be passed into the larger population. 
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 10 000
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 1000
+
+### Results 2
+![results_2.png](resources/results_2.png)
+
+This experiment increased the population size. 
+Based on visualized results, it took an increased number of generations to reach the maximum possible fitness. 
+This could be due to the greater pool of genetic diversity created by an increase in population. 
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 20 000
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 1000
+
+### Results 3
+![results_3.png](resources/results_3.png)
+
+This experiment aimed to introduce parameters outside of the successful scope to determine what a non-fine tuned results
+could look like. 
+A small population size reduces the genetic diversity within the population, combined with a relatively large tournament pool
+(in relation to the population size), the fittest individuals were consistently used for crossover operations, which were largely unsuccesful, 
+hence the steady decline in the fittest individuals. 
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 500
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 100
+
+### Results 4
+![results_4.png](resources/results_4.png)
+
+This experiment aimed to showcase the difference in selection pool size in comparison to Results 1 and 2. 
+The smaller selection pool meant that population diversity was maintained due to not always selecting the 
+fittest individual available. However the maintenance of diversity meant that the successes of the fittest individual's 
+were never capitalized from, but instead a reasonably good selection of individuals had good solutions at around 70% fitness,
+hence the consistent fittest individual line at 70% fitness. 
+
+
+#### Parameters:
+- Generations = 30 000
+- Population size = 10 000
+- Early stop condition if target achieved: True
+- Reproduction probability = 0.98
+- Mutation probability = 0.05
+- Selection = Tournament
+- Selection pool size = 100

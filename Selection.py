@@ -1,8 +1,9 @@
 import random
+import sys
 
 from Population import Population
 
-tournament_pool_size = 1000  # Initialize the size of the tournament pool
+tournament_pool_size = 2000  # Initialize the size of the tournament pool
 
 
 # This method allows you to specify which selection method is executed
@@ -49,10 +50,12 @@ def fittest_in_tournament(pool):
     fittest_individual = None
 
     for individual in pool:  # Loop through the individuals in the pool
-        if individual.fitness > highest_fitness:  # A higher fitness is detected
+        if individual.fitness >= highest_fitness:  # A higher fitness is detected
             fittest_individual = individual  # Update the fittest individual
             highest_fitness = individual.fitness  # Update the highest fitness value
 
+    if fittest_individual is None:
+        sys.exit()
     return fittest_individual
 
 
