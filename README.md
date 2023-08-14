@@ -206,7 +206,7 @@ Temperature is a fine-tuning parameter that allows the selection to be more rand
 based on the values of T. 
 **Note:** Determinsitc behaviour is such that the highest fitness individual is always selected. (Always selects the fittest individual).
 
-![Pasted image 20230227111848.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227111848.png)
+![Pasted image 20230227111848.png](resources/boltsman_dist.png)
 
 A common usage of this methodology is to begin with a more random (high T value) in order to introduce diversity into the population, 
 and decrease Temperature (T) gradually as the generations continue in order to move from random behaviour to a more deterministic selection. 
@@ -226,21 +226,21 @@ This point serves as the single point at which to crossover.
 Based on the single point two children are created, using opposite genetic elements from each of the parents. 
 The below diagram visualizes the concept in a simple and easily understandable manner. 
 
-![Pasted image 20230227112521.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112521.png)
+![Pasted image 20230227112521.png](resources/singple_point.png)
 
 #### 2. Double Point Crossover
 The Double Point Crossover extends the idea introduced in Single Point Crossover. 
 Except there are two random points (index) chosen. 
 The below diagram visualizes the process.
 
-![Pasted image 20230227112536.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112536.png)
+![Pasted image 20230227112536.png](resources/double_point.png)
 
 #### 3. Uniform Crossover
 The Uniform Crossover makes use of a uniform distribution to decide at each element of the genetics, wheter the 
 element should be included in Child 1 or Child 2. 
 The below diagram visualizes this process: 
 
-![Pasted image 20230227112547.png](..%2F..%2Fobsidian%2Fimages_and_docs%2FPasted%20image%2020230227112547.png)
+![Pasted image 20230227112547.png](resources/uniform.png)
 
 
 ### Mutation
@@ -268,7 +268,7 @@ This form of mutation may increase diversity significantly, but it may take more
 Sample results are shown below. 
 It is important to note that if the results you get first are not what you expected, altering the parameters 
 of the GA can have a significant effect. The results below will showcase the wide and varied results caused by differing 
-parameters. Hence why the creation of a succesful GA algorithm is as much an art, as it is a science. 
+parameters. Hence why the creation of a successful GA algorithm is as much an art, as it is a science. 
 
 ### Results 1
 ![results_1.png](resources/results_1.png)
