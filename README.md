@@ -55,17 +55,10 @@ Below are two keys pieces of advice to help you in this project.
     It means to not overcomplicate what you are trying to solve, oftentimes we overcomplicate what we are trying to solve. 
     Keep it as simple as you can. 
 2. **MVP Principle**
-    This is a software developement principle, the Minimal Viable Product (MVP). It is linked to the KISS principle, 
+    This is a software development principle, the Minimal Viable Product (MVP). It is linked to the KISS principle, 
     such that your first product goal is to get the most simple form the GA working. From this working version you can improve, 
     or experiment with it, but aim to achieve the Minimal Viable Product first.
 
-### Further Information
-Please find the attached document detailing Evolutionary Algorithms. 
-This includes additinal notes on the each of the below documented elements of a Genetic Algorithm 
-and the underlying theory of how/why evolutionary algorithms work. 
-Please note the theory is challenging but an interesting aspect of GA's. 
-
-[Evolutionary Algorithms](resources/evolutionary_algorithms.pdf)
 
 All rights and attributions to to Professor Kurt Driessens, the professor of the course Intelligent Systems 
 at Maastricht University, from which the notes and information of this project are composed. 
